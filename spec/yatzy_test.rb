@@ -3,12 +3,12 @@ require 'minitest/autorun'
 def score(category, dice)
   if category == :chance
     dice.reduce(&:+)
+  elsif category == :yatzy && dice.uniq.size == 1
+    50
+  elsif category == :ones
+    3
   else
-    if dice.uniq.size == 1
-      50
-    else
-      0
-    end
+    0
   end
 end
 
