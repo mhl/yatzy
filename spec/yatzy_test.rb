@@ -1,14 +1,29 @@
 require 'minitest/autorun'
 
-def score(category, dice)
-  if category == :chance
+class Yatzi
+  attr_reader :dice
+
+  def initialize(dice)
+    @dice = dice
+  end
+
+  def chance
     dice.reduce(&:+)
-  elsif category == :yatzy
+  end
+
+  def yatzy
     dice.uniq.size == 1 ? 50 : 0
-  elsif category == :ones
+  end
+
+  def ones
     dice.select { |i| i == 1 }.reduce(&:+)
   end
 end
+
+def score(category, dice)
+  Yatzi.new(dice).send(category)
+end
+
 
 class TestYatzy < Minitest::Test
   def test_chance_all_ones
