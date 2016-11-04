@@ -4,7 +4,11 @@ def score(category, dice)
   if category == :chance
     dice.reduce(&:+)
   else
-    50
+    if dice.all? { |die| die == dice.first }
+      50
+    else
+      0
+    end
   end
 end
 
