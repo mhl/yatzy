@@ -2,7 +2,7 @@ require 'minitest/autorun'
 # require './blog'
 
 def score(category, dice)
-  5
+  dice.reduce(&:+)
 end
 
 class TestYatzy < Minitest::Test
