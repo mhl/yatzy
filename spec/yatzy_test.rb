@@ -1,7 +1,11 @@
 require 'minitest/autorun'
 
 def score(category, dice)
-  dice.reduce(&:+)
+  if category == :chance
+    dice.reduce(&:+)
+  else
+    50
+  end
 end
 
 class TestYatzy < Minitest::Test
@@ -16,4 +20,5 @@ class TestYatzy < Minitest::Test
   def test_yatzy_all_ones
     assert_equal score(:yatzy, [1, 1, 1, 1, 1]), 50
   end
+
 end
