@@ -3,12 +3,10 @@ require 'minitest/autorun'
 def score(category, dice)
   if category == :chance
     dice.reduce(&:+)
-  elsif category == :yatzy && dice.uniq.size == 1
-    50
+  elsif category == :yatzy
+    dice.uniq.size == 1 ? 50 : 0
   elsif category == :ones
     3
-  else
-    0
   end
 end
 
@@ -32,5 +30,4 @@ class TestYatzy < Minitest::Test
   def test_ones_with_three_ones
     assert_equal 3, score(:ones, [1, 3, 4, 1, 1])
   end
-
 end
