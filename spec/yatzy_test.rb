@@ -21,4 +21,7 @@ class TestYatzy < Minitest::Test
     assert_equal score(:yatzy, [1, 1, 1, 1, 1]), 50
   end
 
+  def test_yatzy_all_different
+    assert_equal score(:yatzy, [1, 2, 3, 4, 5]), 0
+  end
 end
