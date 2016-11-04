@@ -6,7 +6,7 @@ def score(category, dice)
   elsif category == :yatzy
     dice.uniq.size == 1 ? 50 : 0
   elsif category == :ones
-    3
+    dice.select { |i| i == 1 }.reduce(&:+)
   end
 end
 
