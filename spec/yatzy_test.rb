@@ -1,6 +1,10 @@
 require 'minitest/autorun'
 # require './blog'
 
+def score(category, dice)
+  5
+end
+
 class TestYatzy < Minitest::Test
 
   # def setup
