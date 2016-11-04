@@ -30,4 +30,8 @@ class TestYatzy < Minitest::Test
   def test_ones_with_three_ones
     assert_equal 3, score(:ones, [1, 3, 4, 1, 1])
   end
+
+  def test_ones_with_five_ones
+    assert_equal 5, score(:ones, [1, 1, 1, 1, 1])
+  end
 end
