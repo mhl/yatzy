@@ -28,4 +28,9 @@ class TestYatzy < Minitest::Test
   def test_yatzy_all_different
     assert_equal 0, score(:yatzy, [1, 2, 3, 4, 5])
   end
+
+  def test_ones_with_three_ones
+    assert_equal 3, score(:ones, [1, 3, 4, 1, 1])
+  end
+
 end
